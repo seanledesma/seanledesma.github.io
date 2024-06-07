@@ -1,8 +1,8 @@
 # Setup
-title:               SeanLedesma
-tagline:             'A sean production'
-description:         'A reserved <a href="https://jekyllrb.com" target="_blank">Jekyll</a> theme that places the utmost gravity on content with a hidden drawer. Made by <a href="https://twitter.com/mdo" target="_blank">@mdo</a>.'
-url:                 http://lanyon.getpoole.com
+title:               Sean's Blog
+tagline:             'A simple site to check out some of my work'
+description:         'Check out my <a href="https://github.com/seanledesma" target="_blank">Github</a> or find me on twitter at <a href="https://x.com/seanledes" target="_blank">@seanledes</a>.'
+url:                 https://seanledesma.dev
 baseurl:             ''
 paginate:            5
 paginate_path:       "/blog/page:num/"
@@ -10,9 +10,9 @@ permalink:           pretty
 
 # About/contact
 author:
-  name:              Mark Otto
-  url:               https://twitter.com/mdo
-  email:             markdotto@gmail.com
+  name:              Sean Ledesma
+  url:               https://twitter.com/seanledes
+  email:             
 
 # Gems
 plugins:
