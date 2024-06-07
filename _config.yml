@@ -1,23 +1,26 @@
-lsi: false
-safe: true
-incremental: false
-highlighter: rouge
-gist:
-  noscript: false
-kramdown:
-  math_engine: mathjax
-  syntax_highlighter: rouge
-
 # Setup
-title:               Sean's Blog
-tagline:             'A blog for Sean'
-description:         'Welcome to my blog!'
-url:                 https://seanledesma.dev
+title:               SeanLedesma
+tagline:             'A sean production'
+description:         'A reserved <a href="https://jekyllrb.com" target="_blank">Jekyll</a> theme that places the utmost gravity on content with a hidden drawer. Made by <a href="https://twitter.com/mdo" target="_blank">@mdo</a>.'
+url:                 http://lanyon.getpoole.com
 baseurl:             ''
 paginate:            5
+paginate_path:       "/blog/page:num/"
 permalink:           pretty
 
+# About/contact
+author:
+  name:              Mark Otto
+  url:               https://twitter.com/mdo
+  email:             markdotto@gmail.com
+
+# Gems
 plugins:
-  - jekyll-feed
-  - jekyll-sitemap
-  - jekyll-seo-tag
+  - jekyll-paginate
+
+# Custom vars
+version:             1.0.0
+google_analytics_id: #UA-XXXX-Y
+
+
+

@@ -2,6 +2,12 @@
 layout: page
 title: About
 ---
-# About page
 
-This page tells you a little bit about me.
+<p class="message">
+  some text inside a p!
+</p>
+
+some text here
+
+## an h2 basically
+

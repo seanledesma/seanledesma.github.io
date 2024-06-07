@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: page
 title: Blogs
 ---
 
@@ -14,6 +14,7 @@ title: Blogs
 
     <span class="post-date">{{ post.date | date_to_string }}</span>
 
+    {{ post.content | strip_html | truncatewords: 50 }}
   </div>
   {% endfor %}
 </div>

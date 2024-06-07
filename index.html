@@ -3,34 +3,42 @@ layout: default
 title: Home
 ---
 
-<div class="posts">
-  {% for post in paginator.posts %}
-  <div class="post">
-    <h1 class="post-title">
-      <a href="{{ post.url | absolute_url }}">
-        {{ post.title }}
-      </a>
-    </h1>
+<section id="about">
+  <h2>About Me</h2>
+  <p>{{ site.data.about.short_bio }}</p>
+  <a href="{{ '/about/' | absolute_url }}">Read more</a>
+</section>
 
-    <span class="post-date">{{ post.date | date_to_string }}</span>
 
+<section id="latest-posts">
+  <h2>Latest Blog Posts</h2>
+  <div class="posts">
+    {% for post in site.posts limit:2 %}
+    <div class="post">
+      <h3 class="post-title">
+        <a href="{{ post.url | absolute_url }}">
+          {{ post.title }}
+        </a>
+      </h3>
+      <span class="post-date">{{ post.date | date_to_string }}</span>
+      <p>{{ post.content | strip_html | truncatewords: 15 }}</p>
+      <a href="{{ post.url | absolute_url }}">Read more</a>
+    </div>
+    {% endfor %}
   </div>
-  {% endfor %}
-</div>
+  <a href="{{ '/blogs/' | absolute_url }}">View all posts</a>
+</section>
 
-<div class="pagination">
-  {% if paginator.next_page %}
-    <a class="pagination-item older" href="{{ paginator.next_page_path | absolute_url }}">Older</a>
-  {% else %}
-    <span class="pagination-item older">Older</span>
-  {% endif %}
-  {% if paginator.previous_page %}
-    {% if paginator.page == 2 %}
-      <a class="pagination-item newer" href="{{ '/' | absolute_url }}">Newer</a>
-    {% else %}
-      <a class="pagination-item newer" href="{{ paginator.previous_page_path | absolute_url }}">Newer</a>
-    {% endif %}
-  {% else %}
-    <span class="pagination-item newer">Newer</span>
-  {% endif %}
-</div>
+<section id="projects">
+  <h2>Highlighted Projects</h2>
+  <div class="projects">
+    {% for project in site.projects limit:3 %}
+    <div class="project">
+      <h3 class="project-title">{{ project.title }}</h3>
+      <p>{{ project.description }}</p>
+      <a href="{{ project.url | absolute_url }}">Learn more</a>
+    </div>
+    {% endfor %}
+  </div>
+  <a href="{{ '/projects/' | absolute_url }}">View all projects</a>
+</section>
