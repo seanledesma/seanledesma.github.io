@@ -1,0 +1,7 @@
+---
+layout: post
+title: Trying out Raylib
+---
+I'm currently working my way through the textbook *C programming - A Modern Approach* and I've found it really well written and digestible. It's really made me excited to program. Every page is information-dense, and K.N. King provides a Q.A. section, exercises, and projects at the end of every chapter, which I have found immensely useful. However, I have found myself hungry for more than just the provided project challenges, and that's when I discovered Raylib. I've had the chance to work with Raylib for a few small projects now, and I find it really intuitive and easy to use, which is hardly heard of in the C world. I started by messing around with some of the example projects, then started making small demos myself. I was even able to make a functional albeit basic clone of the flappy bird game, which you can see on my Github [here](https://github.com/seanledesma/flighty-bird). 
+
+I know it's possible to compile Raylib projects into webassembly, which is something I'm very excited to check out. I've got some future plans for more Raylib projects, using what I learn as I work my way through the textbook I mentioned earlier. I'll post later on my findings.
