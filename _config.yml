@@ -1,7 +1,7 @@
 # Setup
 title:               Sean's Blog
 tagline:             'A simple site to check out some of my work'
-description:         'Check out my <a href="https://github.com/seanledesma" target="_blank">Github</a> or find me on twitter at <a href="https://x.com/seanledes" target="_blank">@seanledes</a>.'
+description:         'Check out my <a href="https://github.com/seanledesma" target="_blank">Github</a> or find me on twitter at <a href="https://x.com/sledesco" target="_blank">@sledesco</a>.'
 url:                 https://seanledesma.dev
 baseurl:             ''
 paginate:            5
@@ -11,7 +11,7 @@ permalink:           pretty
 # About/contact
 author:
   name:              Sean Ledesma
-  url:               https://twitter.com/seanledes
+  url:               https://x.com/sledesco
   email:             
 
 # Gems
