@@ -30,9 +30,21 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "572e86a97ac5e7e3",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "2024-10-15-ball-collision-physics.md",
+                "mode": "source",
+                "source": false
+              }
+            }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -98,7 +110,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "2024-09-06-testing-raylib.md",
+                "file": "2024-10-15-ball-collision-physics.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,7 +127,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "2024-09-06-testing-raylib.md",
+                "file": "2024-10-15-ball-collision-physics.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -138,7 +150,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "2024-09-06-testing-raylib.md"
+                "file": "2024-10-15-ball-collision-physics.md"
               }
             }
           }
@@ -159,9 +171,10 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "374fd257bbb8ccfd",
+  "active": "4348344b5b3fdd1e",
   "lastOpenFiles": [
+    "2024-09-06-testing-raylib.md",
     "2024-06-06-first-post.md",
-    "2024-09-06-testing-raylib.md"
+    "2024-10-15-ball-collision-physics.md"
   ]
 }
