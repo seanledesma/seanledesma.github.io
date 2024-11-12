@@ -16,8 +16,8 @@ jobs:
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.1'  # Specify Ruby 3.1 here
-          bundler-cache: true  # Optional: Caches bundle install dependencies
+          ruby-version: '3.2'  # Updated to Ruby 3.2 to match sass-embedded requirements
+          bundler-cache: true
 
       - name: Install dependencies
         run: bundle install
