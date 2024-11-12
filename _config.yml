@@ -1,12 +1,8 @@
 # The Site Configuration
 
 # Import the theme
-#theme: jekyll-theme-chirpy
-#remote_theme: jekyll-theme-chirpy
-remote_theme: cotes2020/jekyll-theme-chirpy
-plugins:
-  - jekyll-remote-theme
-  - jekyll-paginate
+theme: jekyll-theme-chirpy
+#remote_theme: cotes2020/jekyll-theme-chirpy
 
 
 
@@ -236,4 +232,4 @@ jekyll-archives:
     category: /categories/:name/
 
 
-theme_version: "1.0.0" # or any version placeholder
+#theme_version: "1.0.0" # or any version placeholder
