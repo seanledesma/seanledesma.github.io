@@ -1,0 +1,95 @@
+
+
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <id>https://seanledesma.dev/</id>
+  <title>Sean's Blog</title>
+  <subtitle>A minimal project-oriented site to track my progress</subtitle>
+  <updated>2024-11-11T22:45:13-07:00</updated>
+  <author>
+    <name>Sean Ledesma</name>
+    <uri>https://seanledesma.dev/</uri>
+  </author>
+  <link rel="self" type="application/atom+xml" href="https://seanledesma.dev/feed.xml"/>
+  <link rel="alternate" type="text/html" hreflang="en"
+    href="https://seanledesma.dev/"/>
+  <generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator>
+  <rights> © 2024 Sean Ledesma </rights>
+  <icon>/assets/img/favicons/favicon.ico</icon>
+  <logo>/assets/img/favicons/favicon-96x96.png</logo>
+
+
+  
+  <entry>
+    <title>Ball Collision Physics in Raylib</title>
+    <link href="https://seanledesma.dev/posts/ball-collision-physics/" rel="alternate" type="text/html" title="Ball Collision Physics in Raylib" />
+    <published>2024-10-15T00:00:00-06:00</published>
+  
+    <updated>2024-10-15T00:00:00-06:00</updated>
+  
+    <id>https://seanledesma.dev/posts/ball-collision-physics/</id>
+    <content src="https://seanledesma.dev/posts/ball-collision-physics/" />
+    <author>
+      <name>Sean Ledesma</name>
+    </author>
+
+  
+    
+  
+
+  <summary>I’ve been messing around with Raylib a bit more recently, trying to get circles to move around the screen and collide with each other. This seemed pretty trivial at first, but the difficulty of getting accurate collisions caught me by surprise.
+
+I started by creating an array of ball structs, with each struct only containing three properties; position, speed and radius.
+typedef struct Ball{
+   ...</summary>
+
+  </entry>
+
+  
+  <entry>
+    <title>Trying out Raylib</title>
+    <link href="https://seanledesma.dev/posts/testing-raylib/" rel="alternate" type="text/html" title="Trying out Raylib" />
+    <published>2024-09-06T00:00:00-06:00</published>
+  
+    <updated>2024-09-06T00:00:00-06:00</updated>
+  
+    <id>https://seanledesma.dev/posts/testing-raylib/</id>
+    <content src="https://seanledesma.dev/posts/testing-raylib/" />
+    <author>
+      <name>Sean Ledesma</name>
+    </author>
+
+  
+    
+  
+
+  <summary>I’m currently working my way through the textbook C programming - A Modern Approach and I’ve found it really well written and digestible. It’s really made me excited to program. Every page is information-dense, and K.N. King provides a Q.A. section, exercises, and projects at the end of every chapter, which I have found immensely useful. However, I have found myself hungry for more than just th...</summary>
+
+  </entry>
+
+  
+  <entry>
+    <title>Introductory Post</title>
+    <link href="https://seanledesma.dev/posts/first-post/" rel="alternate" type="text/html" title="Introductory Post" />
+    <published>2024-06-06T00:00:00-06:00</published>
+  
+    <updated>2024-06-06T00:00:00-06:00</updated>
+  
+    <id>https://seanledesma.dev/posts/first-post/</id>
+    <content src="https://seanledesma.dev/posts/first-post/" />
+    <author>
+      <name>Sean Ledesma</name>
+    </author>
+
+  
+    
+  
+
+  <summary>Hi there! Welcome to my blog, thanks for checking it out. This is the first in what I hope will be a large
+number of posts. My aim is to explore my interests and publish my findings in a very informal manner. Feel
+free to tag along.</summary>
+
+  </entry>
+
+</feed>
+
+
