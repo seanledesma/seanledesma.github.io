@@ -11,22 +11,22 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3  # Pulls the code from your repo
+        uses: actions/checkout@v3
 
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.0'  # Sets Ruby version to use for Jekyll
+          ruby-version: '3.1'  # Specify Ruby 3.1 here
+          bundler-cache: true  # Optional: Caches bundle install dependencies
 
       - name: Install dependencies
-        run: bundle install  # Installs Jekyll and any other gems
+        run: bundle install
 
       - name: Build site
-        run: bundle exec jekyll build  # Builds the Jekyll site
+        run: bundle exec jekyll build
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./_site  # Deploys the output in _site
-
+          publish_dir: ./_site
