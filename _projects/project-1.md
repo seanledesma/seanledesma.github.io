@@ -1,6 +1,6 @@
 ---
-title: "My First Project"
-date: 2024-01-01
-description: "A brief description of my project goes here."
+title: "Spaceship (Asteroids clone)"
+date: 2024-11-11
+description: "Some ball collision physics I've been working on, with a twist."
 ---
-Detailed information about the project can go here.
+Click to get an actual demo.
