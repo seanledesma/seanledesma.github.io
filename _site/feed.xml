@@ -1,271 +1,95 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="https://seanledesma.dev/feed.xml" rel="self" type="application/atom+xml" /><link href="https://seanledesma.dev/" rel="alternate" type="text/html" /><updated>2024-11-11T20:06:00-07:00</updated><id>https://seanledesma.dev/feed.xml</id><title type="html">Sean’s Blog</title><subtitle>Check out my &lt;a href=&quot;https://github.com/seanledesma&quot; target=&quot;_blank&quot;&gt;Github&lt;/a&gt; or find me on twitter at &lt;a href=&quot;https://x.com/sledesco&quot; target=&quot;_blank&quot;&gt;@sledesco&lt;/a&gt;.</subtitle><author><name>Sean Ledesma</name></author><entry><title type="html">Ball Collision Physics in Raylib</title><link href="https://seanledesma.dev/2024/10/15/ball-collision-physics/" rel="alternate" type="text/html" title="Ball Collision Physics in Raylib" /><published>2024-10-15T00:00:00-06:00</published><updated>2024-10-15T00:00:00-06:00</updated><id>https://seanledesma.dev/2024/10/15/ball-collision-physics</id><content type="html" xml:base="https://seanledesma.dev/2024/10/15/ball-collision-physics/"><![CDATA[<p>I’ve been messing around with Raylib a bit more recently, trying to get circles to move around the screen and collide with each other. This seemed pretty trivial at first, but the difficulty of getting accurate collisions caught me by surprise.</p>
 
-<p>I started by creating an array of ball structs, with each struct only containing three properties; position, speed and radius.</p>
-<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">typedef</span> <span class="k">struct</span> <span class="n">Ball</span><span class="p">{</span>
-    <span class="n">Vector2</span> <span class="n">position</span><span class="p">;</span>
-    <span class="n">Vector2</span> <span class="n">speed</span><span class="p">;</span>
-    <span class="kt">float</span> <span class="n">radius</span><span class="p">;</span>
-<span class="p">}</span> <span class="n">Ball</span><span class="p">;</span>
-</code></pre></div></div>
 
-<p>Inside the game loop, I would loop through the array of balls to update their position with their speed. So if the ball was going to the right of the screen, I’d add the ball’s speed to the position, like so:</p>
-<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// continue ball in direction at set speed</span>
-<span class="n">balls</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">position</span><span class="p">.</span><span class="n">x</span> <span class="o">+=</span> <span class="n">balls</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">speed</span><span class="p">.</span><span class="n">x</span><span class="p">;</span>
-<span class="n">balls</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">position</span><span class="p">.</span><span class="n">y</span> <span class="o">+=</span> <span class="n">balls</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">speed</span><span class="p">.</span><span class="n">y</span><span class="p">;</span>
-</code></pre></div></div>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <id>http://localhost:4000/</id>
+  <title>Sean's Blog</title>
+  <subtitle>A minimal project-oriented site to track my progress</subtitle>
+  <updated>2024-11-11T21:37:40-07:00</updated>
+  <author>
+    <name>Sean Ledesma</name>
+    <uri>http://localhost:4000/</uri>
+  </author>
+  <link rel="self" type="application/atom+xml" href="http://localhost:4000/feed.xml"/>
+  <link rel="alternate" type="text/html" hreflang="en"
+    href="http://localhost:4000/"/>
+  <generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator>
+  <rights> © 2024 Sean Ledesma </rights>
+  <icon>/assets/img/favicons/favicon.ico</icon>
+  <logo>/assets/img/favicons/favicon-96x96.png</logo>
 
-<p>and if the ball hit a wall, I’d multiply the balls speed by negative one, so it would start subtracting from the balls position every loop instead of adding:</p>
-<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// if balls hit wall, deflect right angle (?)</span>
-<span class="k">if</span> <span class="p">(</span><span class="n">balls</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">position</span><span class="p">.</span><span class="n">x</span> <span class="o">&gt;=</span> <span class="p">(</span><span class="n">screenWidth</span> <span class="o">-</span> <span class="n">balls</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">radius</span><span class="p">)</span> <span class="o">||</span> <span class="n">balls</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">position</span><span class="p">.</span><span class="n">x</span> <span class="o">&lt;=</span> <span class="n">balls</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">radius</span><span class="p">)</span>
-    <span class="n">balls</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">speed</span><span class="p">.</span><span class="n">x</span> <span class="o">*=</span> <span class="o">-</span><span class="mi">1</span><span class="p">.</span><span class="mi">0</span><span class="n">f</span><span class="p">;</span>
+
+  
+  <entry>
+    <title>Ball Collision Physics in Raylib</title>
+    <link href="http://localhost:4000/posts/ball-collision-physics/" rel="alternate" type="text/html" title="Ball Collision Physics in Raylib" />
+    <published>2024-10-15T00:00:00-06:00</published>
+  
+    <updated>2024-10-15T22:44:27-06:00</updated>
+  
+    <id>http://localhost:4000/posts/ball-collision-physics/</id>
+    <content src="http://localhost:4000/posts/ball-collision-physics/" />
+    <author>
+      <name>Sean Ledesma</name>
+    </author>
+
+  
     
-<span class="k">if</span> <span class="p">(</span><span class="n">balls</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">position</span><span class="p">.</span><span class="n">y</span> <span class="o">&gt;=</span> <span class="p">(</span><span class="n">screenHeight</span> <span class="o">-</span> <span class="n">balls</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">radius</span><span class="p">)</span> <span class="o">||</span> <span class="n">balls</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">position</span><span class="p">.</span><span class="n">y</span> <span class="o">&lt;=</span> <span class="n">balls</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">radius</span><span class="p">)</span>
-    <span class="n">balls</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">speed</span><span class="p">.</span><span class="n">y</span> <span class="o">*=</span> <span class="o">-</span><span class="mi">1</span><span class="p">.</span><span class="mi">0</span><span class="n">f</span><span class="p">;</span>
-</code></pre></div></div>
-
-<p>This works decently well, although it doesn’t look natural at all. What ends up happening is the balls hit the wall, both the x and y speed gets multiplied by negative one, so it effectively makes the ball bounce off at a perfect 90 degree angle every time.</p>
-
-<p>I then wanted to make the balls bounce off of each other, which seemed simple enough. You can detect collisions in Raylib between two circles like so:</p>
-
-<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">CheckCollisionCircles</span><span class="p">(</span><span class="n">balls</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">position</span><span class="p">,</span> <span class="n">balls</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">radius</span><span class="p">,</span> <span class="n">balls</span><span class="p">[</span><span class="n">j</span><span class="p">].</span><span class="n">position</span><span class="p">,</span> <span class="n">balls</span><span class="p">[</span><span class="n">j</span><span class="p">].</span><span class="n">radius</span><span class="p">)</span>
-</code></pre></div></div>
-
-<p>but this had some unexpected results. Upon collision, the balls would immediately flip directions and head back the way they came, which is obviously very unnatural. How on earth do I get the balls to bounce off each other in a natural-looking way?</p>
-
-<p>Going to post the code here for now, will return later to finish this post</p>
-
-<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;raylib.h&gt;</span><span class="cp">
-</span>
-<span class="cp">#include</span> <span class="cpf">&lt;math.h&gt;</span><span class="cp">
-</span>
-<span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp">
-</span>
   
 
-<span class="cp">#define screenWidth 800
-</span>
-<span class="cp">#define screenHeight 450
-</span>
-<span class="cp">#define ballCount sizeof(balls) / sizeof(balls[0])
-</span>
-  
+  <summary>I’ve been messing around with Raylib a bit more recently, trying to get circles to move around the screen and collide with each other. This seemed pretty trivial at first, but the difficulty of getting accurate collisions caught me by surprise.
 
-<span class="c1">// this uses both typedef and struct tag :)</span>
+I started by creating an array of ball structs, with each struct only containing three properties; position, speed and radius.
+typedef struct Ball{
+   ...</summary>
 
-<span class="k">typedef</span> <span class="k">struct</span> <span class="n">Ball</span><span class="p">{</span>
-
-<span class="n">Vector2</span> <span class="n">position</span><span class="p">;</span>
-
-<span class="n">Vector2</span> <span class="n">speed</span><span class="p">;</span>
-
-<span class="kt">float</span> <span class="n">radius</span><span class="p">;</span>
-
-<span class="p">}</span> <span class="n">Ball</span><span class="p">;</span>
+  </entry>
 
   
+  <entry>
+    <title>Trying out Raylib</title>
+    <link href="http://localhost:4000/posts/testing-raylib/" rel="alternate" type="text/html" title="Trying out Raylib" />
+    <published>2024-09-06T00:00:00-06:00</published>
   
+    <updated>2024-09-06T00:00:00-06:00</updated>
   
-  
-
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
-
-<span class="n">InitWindow</span><span class="p">(</span><span class="n">screenWidth</span><span class="p">,</span> <span class="n">screenHeight</span><span class="p">,</span> <span class="s">"particle physics"</span><span class="p">);</span>
-
-  
-
-<span class="n">Ball</span> <span class="n">balls</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span> <span class="o">=</span> <span class="p">{};</span>
-
-  
-
-<span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">ballCount</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-
-<span class="n">balls</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">position</span> <span class="o">=</span> <span class="p">(</span><span class="n">Vector2</span><span class="p">)</span> <span class="p">{</span> <span class="n">GetRandomValue</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="n">screenWidth</span><span class="p">),</span> <span class="n">GetRandomValue</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="n">screenHeight</span><span class="p">)</span> <span class="p">};</span>
-
-<span class="n">balls</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">speed</span> <span class="o">=</span> <span class="p">(</span><span class="n">Vector2</span><span class="p">)</span> <span class="p">{</span> <span class="mi">10</span><span class="p">.</span><span class="mi">0</span><span class="n">f</span><span class="p">,</span> <span class="mi">10</span><span class="p">.</span><span class="mi">0</span><span class="n">f</span> <span class="p">};</span>
-
-<span class="n">balls</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">radius</span> <span class="o">=</span> <span class="mi">20</span><span class="p">.</span><span class="mi">0</span><span class="n">f</span><span class="p">;</span>
-
-<span class="p">}</span>
+    <id>http://localhost:4000/posts/testing-raylib/</id>
+    <content src="http://localhost:4000/posts/testing-raylib/" />
+    <author>
+      <name>Sean Ledesma</name>
+    </author>
 
   
+    
   
 
-<span class="n">SetTargetFPS</span><span class="p">(</span><span class="mi">60</span><span class="p">);</span>
+  <summary>I’m currently working my way through the textbook C programming - A Modern Approach and I’ve found it really well written and digestible. It’s really made me excited to program. Every page is information-dense, and K.N. King provides a Q.A. section, exercises, and projects at the end of every chapter, which I have found immensely useful. However, I have found myself hungry for more than just th...</summary>
 
-<span class="c1">//main game loop here</span>
-
-<span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">WindowShouldClose</span><span class="p">())</span> <span class="p">{</span>
-
-<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">ballCount</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-
-<span class="c1">// Move ball</span>
-
-<span class="n">balls</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">position</span><span class="p">.</span><span class="n">x</span> <span class="o">+=</span> <span class="n">balls</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">speed</span><span class="p">.</span><span class="n">x</span><span class="p">;</span>
-
-<span class="n">balls</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">position</span><span class="p">.</span><span class="n">y</span> <span class="o">+=</span> <span class="n">balls</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">speed</span><span class="p">.</span><span class="n">y</span><span class="p">;</span>
+  </entry>
 
   
-
-<span class="c1">// Wall collisions with position correction</span>
-
-<span class="k">if</span> <span class="p">(</span><span class="n">balls</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">position</span><span class="p">.</span><span class="n">x</span> <span class="o">&gt;=</span> <span class="p">(</span><span class="n">screenWidth</span> <span class="o">-</span> <span class="n">balls</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">radius</span><span class="p">))</span> <span class="p">{</span>
-
-<span class="n">balls</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">position</span><span class="p">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">screenWidth</span> <span class="o">-</span> <span class="n">balls</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">radius</span><span class="p">;</span> <span class="c1">// Prevent sticking on the right</span>
-
-<span class="n">balls</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">speed</span><span class="p">.</span><span class="n">x</span> <span class="o">*=</span> <span class="o">-</span><span class="mi">1</span><span class="p">.</span><span class="mi">0</span><span class="n">f</span><span class="p">;</span>
-
-<span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">balls</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">position</span><span class="p">.</span><span class="n">x</span> <span class="o">&lt;=</span> <span class="n">balls</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">radius</span><span class="p">)</span> <span class="p">{</span>
-
-<span class="n">balls</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">position</span><span class="p">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">balls</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">radius</span><span class="p">;</span> <span class="c1">// Prevent sticking on the left</span>
-
-<span class="n">balls</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">speed</span><span class="p">.</span><span class="n">x</span> <span class="o">*=</span> <span class="o">-</span><span class="mi">1</span><span class="p">.</span><span class="mi">0</span><span class="n">f</span><span class="p">;</span>
-
-<span class="p">}</span>
+  <entry>
+    <title>Introductory Post</title>
+    <link href="http://localhost:4000/posts/first-post/" rel="alternate" type="text/html" title="Introductory Post" />
+    <published>2024-06-06T00:00:00-06:00</published>
+  
+    <updated>2024-06-06T00:00:00-06:00</updated>
+  
+    <id>http://localhost:4000/posts/first-post/</id>
+    <content src="http://localhost:4000/posts/first-post/" />
+    <author>
+      <name>Sean Ledesma</name>
+    </author>
 
   
-
-<span class="k">if</span> <span class="p">(</span><span class="n">balls</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">position</span><span class="p">.</span><span class="n">y</span> <span class="o">&gt;=</span> <span class="p">(</span><span class="n">screenHeight</span> <span class="o">-</span> <span class="n">balls</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">radius</span><span class="p">))</span> <span class="p">{</span>
-
-<span class="n">balls</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">position</span><span class="p">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">screenHeight</span> <span class="o">-</span> <span class="n">balls</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">radius</span><span class="p">;</span> <span class="c1">// Prevent sticking on the bottom</span>
-
-<span class="n">balls</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">speed</span><span class="p">.</span><span class="n">y</span> <span class="o">*=</span> <span class="o">-</span><span class="mi">1</span><span class="p">.</span><span class="mi">0</span><span class="n">f</span><span class="p">;</span>
-
-<span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">balls</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">position</span><span class="p">.</span><span class="n">y</span> <span class="o">&lt;=</span> <span class="n">balls</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">radius</span><span class="p">)</span> <span class="p">{</span>
-
-<span class="n">balls</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">position</span><span class="p">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">balls</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">radius</span><span class="p">;</span> <span class="c1">// Prevent sticking on the top</span>
-
-<span class="n">balls</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">speed</span><span class="p">.</span><span class="n">y</span> <span class="o">*=</span> <span class="o">-</span><span class="mi">1</span><span class="p">.</span><span class="mi">0</span><span class="n">f</span><span class="p">;</span>
-
-<span class="p">}</span>
-
-  
+    
   
 
-<span class="c1">// Ball-ball collisions</span>
-
-<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">ballCount</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-
-<span class="kt">float</span> <span class="n">dx</span> <span class="o">=</span> <span class="n">balls</span><span class="p">[</span><span class="n">j</span><span class="p">].</span><span class="n">position</span><span class="p">.</span><span class="n">x</span> <span class="o">-</span> <span class="n">balls</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">position</span><span class="p">.</span><span class="n">x</span><span class="p">;</span>
-
-<span class="kt">float</span> <span class="n">dy</span> <span class="o">=</span> <span class="n">balls</span><span class="p">[</span><span class="n">j</span><span class="p">].</span><span class="n">position</span><span class="p">.</span><span class="n">y</span> <span class="o">-</span> <span class="n">balls</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">position</span><span class="p">.</span><span class="n">y</span><span class="p">;</span>
-
-<span class="kt">float</span> <span class="n">distanceSquared</span> <span class="o">=</span> <span class="n">dx</span> <span class="o">*</span> <span class="n">dx</span> <span class="o">+</span> <span class="n">dy</span> <span class="o">*</span> <span class="n">dy</span><span class="p">;</span>
-
-<span class="kt">float</span> <span class="n">radiusSum</span> <span class="o">=</span> <span class="n">balls</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">radius</span> <span class="o">+</span> <span class="n">balls</span><span class="p">[</span><span class="n">j</span><span class="p">].</span><span class="n">radius</span><span class="p">;</span>
-
-  
-
-<span class="k">if</span> <span class="p">(</span><span class="n">distanceSquared</span> <span class="o">&lt;=</span> <span class="n">radiusSum</span> <span class="o">*</span> <span class="n">radiusSum</span><span class="p">)</span> <span class="p">{</span>
-
-<span class="c1">// Calculate normal</span>
-
-<span class="n">Vector2</span> <span class="n">normal</span> <span class="o">=</span> <span class="p">{</span> <span class="n">dx</span><span class="p">,</span> <span class="n">dy</span> <span class="p">};</span>
-
-<span class="kt">float</span> <span class="n">distance</span> <span class="o">=</span> <span class="n">sqrtf</span><span class="p">(</span><span class="n">distanceSquared</span><span class="p">);</span>
-
-<span class="n">normal</span><span class="p">.</span><span class="n">x</span> <span class="o">/=</span> <span class="n">distance</span><span class="p">;</span>
-
-<span class="n">normal</span><span class="p">.</span><span class="n">y</span> <span class="o">/=</span> <span class="n">distance</span><span class="p">;</span>
-
-  
-
-<span class="c1">// Calculate relative velocity</span>
-
-<span class="n">Vector2</span> <span class="n">relativeVelocity</span> <span class="o">=</span> <span class="p">{</span> <span class="n">balls</span><span class="p">[</span><span class="n">j</span><span class="p">].</span><span class="n">speed</span><span class="p">.</span><span class="n">x</span> <span class="o">-</span> <span class="n">balls</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">speed</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="n">balls</span><span class="p">[</span><span class="n">j</span><span class="p">].</span><span class="n">speed</span><span class="p">.</span><span class="n">y</span> <span class="o">-</span> <span class="n">balls</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">speed</span><span class="p">.</span><span class="n">y</span> <span class="p">};</span>
-
-  
-
-<span class="c1">// Calculate the velocity along the normal</span>
-
-<span class="kt">float</span> <span class="n">velocityAlongNormal</span> <span class="o">=</span> <span class="n">relativeVelocity</span><span class="p">.</span><span class="n">x</span> <span class="o">*</span> <span class="n">normal</span><span class="p">.</span><span class="n">x</span> <span class="o">+</span> <span class="n">relativeVelocity</span><span class="p">.</span><span class="n">y</span> <span class="o">*</span> <span class="n">normal</span><span class="p">.</span><span class="n">y</span><span class="p">;</span>
-
-  
-
-<span class="c1">// If the balls are moving away from each other, don't do anything</span>
-
-<span class="k">if</span> <span class="p">(</span><span class="n">velocityAlongNormal</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
-
-<span class="k">continue</span><span class="p">;</span>
-
-  
-
-<span class="c1">// Swap velocities along the normal direction</span>
-
-<span class="kt">float</span> <span class="n">restitution</span> <span class="o">=</span> <span class="mi">0</span><span class="p">.</span><span class="mi">8</span><span class="n">f</span><span class="p">;</span> <span class="c1">// 1.0 for elastic collision (you can tweak it for less elastic collisions)</span>
-
-<span class="kt">float</span> <span class="n">impulseMagnitude</span> <span class="o">=</span> <span class="o">-</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">restitution</span><span class="p">)</span> <span class="o">*</span> <span class="n">velocityAlongNormal</span><span class="p">;</span>
-
-  
-
-<span class="c1">// Apply impulse to the balls</span>
-
-<span class="n">balls</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">speed</span><span class="p">.</span><span class="n">x</span> <span class="o">-=</span> <span class="n">impulseMagnitude</span> <span class="o">*</span> <span class="n">normal</span><span class="p">.</span><span class="n">x</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
-
-<span class="n">balls</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">speed</span><span class="p">.</span><span class="n">y</span> <span class="o">-=</span> <span class="n">impulseMagnitude</span> <span class="o">*</span> <span class="n">normal</span><span class="p">.</span><span class="n">y</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
-
-<span class="n">balls</span><span class="p">[</span><span class="n">j</span><span class="p">].</span><span class="n">speed</span><span class="p">.</span><span class="n">x</span> <span class="o">+=</span> <span class="n">impulseMagnitude</span> <span class="o">*</span> <span class="n">normal</span><span class="p">.</span><span class="n">x</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
-
-<span class="n">balls</span><span class="p">[</span><span class="n">j</span><span class="p">].</span><span class="n">speed</span><span class="p">.</span><span class="n">y</span> <span class="o">+=</span> <span class="n">impulseMagnitude</span> <span class="o">*</span> <span class="n">normal</span><span class="p">.</span><span class="n">y</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
-
-  
-
-<span class="c1">// Push balls apart slightly to avoid sticking or repeated collisions</span>
-
-<span class="kt">float</span> <span class="n">overlap</span> <span class="o">=</span> <span class="n">radiusSum</span> <span class="o">-</span> <span class="n">distance</span><span class="p">;</span>
-
-<span class="n">balls</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">position</span><span class="p">.</span><span class="n">x</span> <span class="o">-=</span> <span class="n">normal</span><span class="p">.</span><span class="n">x</span> <span class="o">*</span> <span class="p">(</span><span class="n">overlap</span> <span class="o">/</span> <span class="mi">2</span><span class="p">);</span>
-
-<span class="n">balls</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">position</span><span class="p">.</span><span class="n">y</span> <span class="o">-=</span> <span class="n">normal</span><span class="p">.</span><span class="n">y</span> <span class="o">*</span> <span class="p">(</span><span class="n">overlap</span> <span class="o">/</span> <span class="mi">2</span><span class="p">);</span>
-
-<span class="n">balls</span><span class="p">[</span><span class="n">j</span><span class="p">].</span><span class="n">position</span><span class="p">.</span><span class="n">x</span> <span class="o">+=</span> <span class="n">normal</span><span class="p">.</span><span class="n">x</span> <span class="o">*</span> <span class="p">(</span><span class="n">overlap</span> <span class="o">/</span> <span class="mi">2</span><span class="p">);</span>
-
-<span class="n">balls</span><span class="p">[</span><span class="n">j</span><span class="p">].</span><span class="n">position</span><span class="p">.</span><span class="n">y</span> <span class="o">+=</span> <span class="n">normal</span><span class="p">.</span><span class="n">y</span> <span class="o">*</span> <span class="p">(</span><span class="n">overlap</span> <span class="o">/</span> <span class="mi">2</span><span class="p">);</span>
-
-<span class="p">}</span>
-
-<span class="p">}</span>
-
-  
-
-<span class="p">}</span>
-
-  
-
-<span class="n">BeginDrawing</span><span class="p">();</span>
-
-<span class="n">ClearBackground</span><span class="p">(</span><span class="n">BLACK</span><span class="p">);</span>
-
-  
-
-<span class="c1">//DrawCircleV(ballPosition, (float) ballRadius, WHITE);</span>
-
-<span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">balls</span><span class="p">)</span> <span class="o">/</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">balls</span><span class="p">[</span><span class="mi">0</span><span class="p">]));</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-
-<span class="n">DrawCircleV</span><span class="p">(</span><span class="n">balls</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">position</span><span class="p">,</span> <span class="p">(</span><span class="kt">float</span><span class="p">)</span> <span class="n">balls</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">radius</span><span class="p">,</span> <span class="n">WHITE</span><span class="p">);</span>
-
-<span class="p">}</span>
-
-  
-
-<span class="n">DrawFPS</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span>
-
-  
-
-<span class="n">EndDrawing</span><span class="p">();</span>
-
-<span class="p">}</span>
-
-  
-
-<span class="n">CloseWindow</span><span class="p">();</span>
-
-  
-
-<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-
-<span class="p">}</span>
-</code></pre></div></div>]]></content><author><name>Sean Ledesma</name></author><summary type="html"><![CDATA[I’ve been messing around with Raylib a bit more recently, trying to get circles to move around the screen and collide with each other. This seemed pretty trivial at first, but the difficulty of getting accurate collisions caught me by surprise.]]></summary></entry><entry><title type="html">Trying out Raylib</title><link href="https://seanledesma.dev/2024/09/06/testing-raylib/" rel="alternate" type="text/html" title="Trying out Raylib" /><published>2024-09-06T00:00:00-06:00</published><updated>2024-09-06T00:00:00-06:00</updated><id>https://seanledesma.dev/2024/09/06/testing-raylib</id><content type="html" xml:base="https://seanledesma.dev/2024/09/06/testing-raylib/"><![CDATA[<p>I’m currently working my way through the textbook <em>C programming - A Modern Approach</em> and I’ve found it really well written and digestible. It’s really made me excited to program. Every page is information-dense, and K.N. King provides a Q.A. section, exercises, and projects at the end of every chapter, which I have found immensely useful. However, I have found myself hungry for more than just the provided project challenges, and that’s when I discovered Raylib. I’ve had the chance to work with Raylib for a few small projects now, and I find it really intuitive and easy to use, which is hardly heard of in the C world. I started by messing around with some of the example projects, then started making small demos myself. I was even able to make a functional albeit basic clone of the flappy bird game, which you can see on my Github <a href="https://github.com/seanledesma/flighty-bird">here</a>.</p>
-
-<p>I know it’s possible to compile Raylib projects into webassembly, which is something I’m very excited to check out. I’ve got some future plans for more Raylib projects, using what I learn as I work my way through the textbook I mentioned earlier. I’ll post later on my findings.</p>]]></content><author><name>Sean Ledesma</name></author><summary type="html"><![CDATA[I’m currently working my way through the textbook C programming - A Modern Approach and I’ve found it really well written and digestible. It’s really made me excited to program. Every page is information-dense, and K.N. King provides a Q.A. section, exercises, and projects at the end of every chapter, which I have found immensely useful. However, I have found myself hungry for more than just the provided project challenges, and that’s when I discovered Raylib. I’ve had the chance to work with Raylib for a few small projects now, and I find it really intuitive and easy to use, which is hardly heard of in the C world. I started by messing around with some of the example projects, then started making small demos myself. I was even able to make a functional albeit basic clone of the flappy bird game, which you can see on my Github here.]]></summary></entry><entry><title type="html">Introductory Post</title><link href="https://seanledesma.dev/2024/06/06/first-post/" rel="alternate" type="text/html" title="Introductory Post" /><published>2024-06-06T00:00:00-06:00</published><updated>2024-06-06T00:00:00-06:00</updated><id>https://seanledesma.dev/2024/06/06/first-post</id><content type="html" xml:base="https://seanledesma.dev/2024/06/06/first-post/"><![CDATA[<p>Hi there! Welcome to my blog, thanks for checking it out. This is the first in what I hope will be a large
+  <summary>Hi there! Welcome to my blog, thanks for checking it out. This is the first in what I hope will be a large
 number of posts. My aim is to explore my interests and publish my findings in a very informal manner. Feel
-free to tag along.</p>]]></content><author><name>Sean Ledesma</name></author><summary type="html"><![CDATA[Hi there! Welcome to my blog, thanks for checking it out. This is the first in what I hope will be a large number of posts. My aim is to explore my interests and publish my findings in a very informal manner. Feel free to tag along.]]></summary></entry></feed>
+free to tag along.</summary>
+
+  </entry>
+
+</feed>
+
+
