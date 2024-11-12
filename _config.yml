@@ -1,9 +1,12 @@
 # The Site Configuration
 
 # Import the theme
-theme: jekyll-theme-chirpy
+#theme: jekyll-theme-chirpy
 #remote_theme: jekyll-theme-chirpy
-#remote_theme: cotes2020/jekyll-theme-chirpy
+remote_theme: cotes2020/jekyll-theme-chirpy
+plugins:
+  - jekyll-remote-theme
+  - jekyll-paginate
 
 
 
@@ -175,6 +178,9 @@ collections:
   tabs:
     output: true
     sort_by: order
+  projects:
+    output: true
+    permalink: /projects/:path/
 
 defaults:
   - scope:
@@ -228,3 +234,6 @@ jekyll-archives:
   permalinks:
     tag: /tags/:name/
     category: /categories/:name/
+
+
+theme_version: "1.0.0" # or any version placeholder
