@@ -61,7 +61,7 @@ order: 1
     <div class="card">
       <div class="card-body">
         <h5 class="card-title">
-          <a href="/games/asteroids/game.html" target="_blank">
+          <a href="{{ project.link }}" target="_blank">
             {{ project.title }}
           </a>
         </h5>
@@ -71,3 +71,4 @@ order: 1
     </div>
   {% endfor %}
 </div>
+
