@@ -38,12 +38,12 @@
 <meta property="og:url" content="https://seanledesma.dev/projects/" />
 <meta property="og:site_name" content="Sean’s Blog" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2024-12-07T13:24:19-07:00" />
+<meta property="article:published_time" content="2024-12-07T14:20:36-07:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Projects" />
 <meta name="twitter:site" content="@sldsma" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-12-07T13:24:19-07:00","datePublished":"2024-12-07T13:24:19-07:00","description":"A minimal project-oriented site to track my progress","headline":"Projects","mainEntityOfPage":{"@type":"WebPage","@id":"https://seanledesma.dev/projects/"},"url":"https://seanledesma.dev/projects/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-12-07T14:20:36-07:00","datePublished":"2024-12-07T14:20:36-07:00","description":"A minimal project-oriented site to track my progress","headline":"Projects","mainEntityOfPage":{"@type":"WebPage","@id":"https://seanledesma.dev/projects/"},"url":"https://seanledesma.dev/projects/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -444,107 +444,92 @@
     </h1>
     <div class="content">
       <style>
-/* Custom CSS for Project Boxes */
-.card-deck {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-
-.card {
-  width: 100%;
-  max-width: 650px;
-  margin-bottom: 1rem;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  border: 1px solid #ddd;
-  border-radius: 5px;
-}
-
-.card-title {
-  font-size: 1.25rem;
-  font-weight: bold;
-}
-
-.card-text {
-  margin: 0.5em 0;
-}
-
-.post-meta {
-  color: #888;
-  font-size: 0.875rem;
-}
-
-/* Dark Mode Styles */
-@media (prefers-color-scheme: dark) {
-  .card {
-    background-color: #333;
-    border-color: #444;
-    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+  .project-preview {
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    background: var(--card-bg);
+    border-radius: 0.625rem;
+    transition: all 0.3s ease-in-out;
+    border: 1px solid rgba(158, 158, 158, 0.2);  /* Explicit light border */
+  }
+  
+  .project-preview:hover {
+    background: var(--card-hovor-bg, var(--mask-bg));
+    transform: translateX(0.25rem);
   }
 
-  .card-title, .card-text, .post-meta {
-    color: #ddd;
+  .project-preview h2 {
+    font-size: 1.4rem;
+    margin-top: 0;
+    margin-bottom: 0.4rem;
+  }
+  
+  .project-preview a {
+    color: var(--text-color);
+    text-decoration: none !important;
   }
 
-  .post-meta {
-    color: #bbb;
+  .project-preview .post-meta {
+    font-size: 0.85rem;
   }
-}
 </style>
 
-<div class="card-deck">
+<div class="post-content px-1">
   
   
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">
-          <a href="/wasm/asteroids/game.html" target="_blank">
-            Spaceship (Asteroids clone)
-          </a>
-        </h5>
-        <p class="card-text">Some ball collision physics I've been working on, with a twist.</p>
-        <p class="post-meta">Posted on November 11, 2024</p>
+    <a href="/wasm/game_of_life/game.html">
+      <div class="project-preview">
+        <h2>Conway's Game Of Life</h2>
+        <div class="post-content">
+          <p style="color: var(--text-color);">My own reproduction of Conway's Game Of Life, written in C with Raylib, compiled to wasm with emscripten</p>
+        </div>
+        <div class="post-meta text-muted">
+          <i class="far fa-calendar fa-fw"></i>
+          Dec 07, 2024
+        </div>
       </div>
-    </div>
+    </a>
   
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">
-          <a href="/wasm/game_of_life/game.html" target="_blank">
-            Conway's Game Of Life
-          </a>
-        </h5>
-        <p class="card-text">My own reproduction of Conway's Game Of Life, written in C with Raylib, compiled to wasm with emscripten</p>
-        <p class="post-meta">Posted on November 11, 2024</p>
+    <a href="/wasm/asteroids/game.html">
+      <div class="project-preview">
+        <h2>Spaceship (Asteroids clone)</h2>
+        <div class="post-content">
+          <p style="color: var(--text-color);">Some ball collision physics I've been working on, with a twist.</p>
+        </div>
+        <div class="post-meta text-muted">
+          <i class="far fa-calendar fa-fw"></i>
+          Nov 11, 2024
+        </div>
       </div>
-    </div>
+    </a>
   
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">
-          <a href="/wasm/flighty_bird/flighty.html" target="_blank">
-            Flighty Bird
-          </a>
-        </h5>
-        <p class="card-text">First game made with Raylib, mostly experimental</p>
-        <p class="post-meta">Posted on September 06, 2024</p>
+    <a href="/wasm/flighty_bird/flighty.html">
+      <div class="project-preview">
+        <h2>Flighty Bird</h2>
+        <div class="post-content">
+          <p style="color: var(--text-color);">First game made with Raylib, mostly experimental</p>
+        </div>
+        <div class="post-meta text-muted">
+          <i class="far fa-calendar fa-fw"></i>
+          Sep 06, 2024
+        </div>
       </div>
-    </div>
+    </a>
   
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">
-          <a href="/wasm/mind_graph/index.html" target="_blank">
-            Mind Graph
-          </a>
-        </h5>
-        <p class="card-text">Mind Graph is a way to map out your thoughts, built with Rust and eGUI</p>
-        <p class="post-meta">Posted on November 04, 2023</p>
+    <a href="/wasm/mind_graph/index.html">
+      <div class="project-preview">
+        <h2>Mind Graph</h2>
+        <div class="post-content">
+          <p style="color: var(--text-color);">Mind Graph is a way to map out your thoughts, built with Rust and eGUI</p>
+        </div>
+        <div class="post-meta text-muted">
+          <i class="far fa-calendar fa-fw"></i>
+          Nov 04, 2023
+        </div>
       </div>
-    </div>
+    </a>
   
 </div>
-
 
     </div>
   
@@ -798,9 +783,16 @@
 
   
 
+  
+    
+
+    
+
+  
 
 
-  <script src="https://cdn.jsdelivr.net/combine/npm/simple-jekyll-search@1.10.0/dest/simple-jekyll-search.min.js,npm/loading-attribute-polyfill@2.1.1/dist/loading-attribute-polyfill.umd.min.js,npm/glightbox@3.3.0/dist/js/glightbox.min.js,npm/clipboard@2.0.11/dist/clipboard.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/combine/npm/simple-jekyll-search@1.10.0/dest/simple-jekyll-search.min.js,npm/loading-attribute-polyfill@2.1.1/dist/loading-attribute-polyfill.umd.min.js,npm/glightbox@3.3.0/dist/js/glightbox.min.js,npm/clipboard@2.0.11/dist/clipboard.min.js,npm/tocbot@4.29.0/dist/tocbot.min.js"></script>
 
 
 
