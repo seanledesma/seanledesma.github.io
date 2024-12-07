@@ -16,7 +16,6 @@
             color: #ffffff;
             font-family: Arial, sans-serif;
         }
-
         .sidebar {
             padding: 20px;
             width: 300px;
@@ -24,39 +23,32 @@
             overflow-y: auto;
             box-sizing: border-box;
         }
-
         .game-container {
             flex-shrink: 0;
         }
-
         canvas {
             display: block;
         }
-
         h1 {
             font-size: 24px;
             margin-bottom: 20px;
             color: #4CAF50;
         }
-
         h2 {
             font-size: 18px;
             margin: 15px 0;
             color: #81C784;
         }
-
         p {
             line-height: 1.6;
             margin-bottom: 15px;
         }
-
         .controls {
             background-color: #3c3c3c;
             padding: 15px;
             border-radius: 8px;
             margin-top: 20px;
         }
-
         .reset-button {
             background-color: #4CAF50;
             color: white;
@@ -66,8 +58,8 @@
             cursor: pointer;
             font-size: 16px;
             transition: background-color 0.3s;
+            margin-top: 20px;
         }
-
         .reset-button:hover {
             background-color: #45a049;
         }
@@ -79,15 +71,21 @@
         
         <h2>About</h2>
         <p>Conway's Game of Life, created by mathematician John Conway in 1970, is a cellular automaton - a grid system where cells follow simple rules to create complex, evolving patterns. Each generation of cells lives or dies based on its neighbors, demonstrating how complex behaviors can emerge from basic rules.</p>
-
+        
         <p>The beauty of this system lies in its simplicity: with just four rules governing birth and death, endless patterns emerge. Some configurations create stable shapes, others oscillate in predictable ways, and some even generate "spaceships" that glide across the grid.</p>
         
         <h2>Rules</h2>
-        <p>1. Any live cell with fewer than two live neighbors dies (gets lonely)<br>
-        2. Any live cell with two or three live neighbors lives (just right!)<br>
-        3. Any live cell with more than three live neighbors dies (too crowded)<br>
-        4. Any dead cell with exactly three live neighbors becomes alive (perfect conditions)</p>
-        
+        <p>1. Any live cell with fewer than two live neighbors dies<br>
+        2. Any live cell with two or three live neighbors lives<br>
+        3. Any live cell with more than three live neighbors dies<br>
+        4. Any dead cell with exactly three live neighbors becomes alive</p>
+    </div>
+
+    <div class="game-container">
+        <canvas id="canvas" tabindex="-1"></canvas>
+    </div>
+
+    <div class="sidebar" style="text-align: left;">
         <div class="controls">
             <h2>Controls</h2>
             <p>• Space - Pause/Resume<br>
@@ -97,13 +95,6 @@
             • Left click - Toggle cell state<br>
             • Middle mouse - Pan view</p>
         </div>
-    </div>
-
-    <div class="game-container">
-        <canvas id="canvas" tabindex="-1"></canvas>
-    </div>
-
-    <div class="sidebar" style="text-align: center;">
         <button class="reset-button" onclick="location.reload()">Reset Game</button>
     </div>
 
