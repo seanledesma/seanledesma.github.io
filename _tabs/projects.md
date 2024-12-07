@@ -1,74 +1,55 @@
 ---
-title: Projects
-layout: page
+layout: 
 permalink: /projects/
 icon: fas fa-rocket
 order: 1
---- 
+---
 
 <style>
-/* Custom CSS for Project Boxes */
-.card-deck {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-
-.card {
-  width: 100%;
-  max-width: 650px;
-  margin-bottom: 1rem;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  border: 1px solid #ddd;
-  border-radius: 5px;
-}
-
-.card-title {
-  font-size: 1.25rem;
-  font-weight: bold;
-}
-
-.card-text {
-  margin: 0.5em 0;
-}
-
-.post-meta {
-  color: #888;
-  font-size: 0.875rem;
-}
-
-/* Dark Mode Styles */
-@media (prefers-color-scheme: dark) {
-  .card {
-    background-color: #333;
-    border-color: #444;
-    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+  .project-preview {
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    background: var(--card-bg);
+    border-radius: 0.625rem;
+    transition: all 0.3s ease-in-out;
+    border: 1px solid rgba(158, 158, 158, 0.2);  /* Explicit light border */
+  }
+  
+  .project-preview:hover {
+    background: var(--card-hovor-bg, var(--mask-bg));
+    transform: translateX(0.25rem);
   }
 
-  .card-title, .card-text, .post-meta {
-    color: #ddd;
+  .project-preview h2 {
+    font-size: 1.4rem;
+    margin-top: 0;
+    margin-bottom: 0.4rem;
+  }
+  
+  .project-preview a {
+    color: var(--text-color);
+    text-decoration: none !important;
   }
 
-  .post-meta {
-    color: #bbb;
+  .project-preview .post-meta {
+    font-size: 0.85rem;
   }
-}
 </style>
 
-<div class="card-deck">
+<div class="post-content px-1">
   {% assign sorted_projects = site.projects | sort: 'date' | reverse %}
   {% for project in sorted_projects %}
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">
-          <a href="{{ project.link }}" target="_blank">
-            {{ project.title }}
-          </a>
-        </h5>
-        <p class="card-text">{{ project.description }}</p>
-        <p class="post-meta">Posted on {{ project.date | date: "%B %d, %Y" }}</p>
+    <a href="{{ project.link }}">
+      <div class="project-preview">
+        <h2>{{ project.title }}</h2>
+        <div class="post-content">
+          <p style="color: var(--text-color);">{{ project.description }}</p>
+        </div>
+        <div class="post-meta text-muted">
+          <i class="far fa-calendar fa-fw"></i>
+          {{ project.date | date: "%b %d, %Y" }}
+        </div>
       </div>
-    </div>
+    </a>
   {% endfor %}
 </div>
-
