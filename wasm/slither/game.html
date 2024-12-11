@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Retro Snake Game</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            font-family: 'Courier New', monospace;
+            color: #33ff33;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            font-size: 3em;
+            text-transform: uppercase;
+            text-shadow: 0 0 10px #33ff33;
+            margin: 0;
+            animation: glow 1.5s ease-in-out infinite alternate;
+        }
+
+        .game-container {
+            background: #000000;
+            padding: 20px;
+            border-radius: 10px;
+            border: 2px solid #33ff33;
+            box-shadow: 0 0 20px rgba(51, 255, 51, 0.3);
+            margin: 0 auto;
+            width: fit-content;
+        }
+
+        .controls {
+            text-align: center;
+            margin-top: 30px;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 5px;
+        }
+
+        .controls h2 {
+            margin-top: 0;
+        }
+
+        .snake-decoration {
+            font-size: 24px;
+            text-align: center;
+            margin: 20px 0;
+            color: #33ff33;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 10px #33ff33;
+            }
+            to {
+                text-shadow: 0 0 20px #33ff33, 0 0 30px #33ff33;
+            }
+        }
+
+        /* Original canvas styles */
+        .emscripten {
+            padding-right: 0;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+        }
+
+        canvas.emscripten {
+            border: 0 none;
+            background-color: #000;
+        }
+
+        #output {
+            width: 100%;
+            height: 150px;
+            margin: 0 auto;
+            margin-top: 10px;
+            border-left: 0;
+            border-right: 0;
+            padding-left: 0;
+            padding-right: 0;
+            display: block;
+            background-color: black;
+            color: #33ff33;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="snake-decoration">🐍</div>
+            <h1>Retro Snake</h1>
+            <div class="snake-decoration">~^~^~^~^~</div>
+        </header>
+
+        <div class="game-container">
+            <!-- Your original canvas and game elements -->
+            <div class="emscripten_border">
+                <canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()" tabindex=-1></canvas>
+            </div>
+            <textarea id="output" rows="8"></textarea>
+        </div>
+
+        <div class="controls">
+            <h2>Controls</h2>
+            <p>⬆️ ⬇️ ⬅️ ➡️ Arrow keys to move</p>
+            <p>SPACE to pause</p>
+            <p>R to restart</p>
+        </div>
+    </div>
+
+    <!-- Your original scripts -->
+    <script>
+        // Your original JavaScript here
+    </script>
+    <script async src="game.js"></script>
+</body>
+</html>
