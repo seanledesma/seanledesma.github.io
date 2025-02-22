@@ -4,7 +4,7 @@
   <id>https://seanledesma.dev/</id>
   <title>Sean's Blog</title>
   <subtitle>A minimal project-oriented site to track my progress</subtitle>
-  <updated>2024-12-10T21:28:45-07:00</updated>
+  <updated>2025-02-22T12:50:52-07:00</updated>
   <author>
     <name>Sean Ledesma</name>
     <uri>https://seanledesma.dev/</uri>
@@ -13,7 +13,7 @@
   <link rel="alternate" type="text/html" hreflang="en"
     href="https://seanledesma.dev/"/>
   <generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator>
-  <rights> © 2024 Sean Ledesma </rights>
+  <rights> © 2025 Sean Ledesma </rights>
   <icon>/assets/img/favicons/favicon.ico</icon>
   <logo>/assets/img/favicons/favicon-96x96.png</logo>
 
