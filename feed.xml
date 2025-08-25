@@ -4,7 +4,7 @@
   <id>https://seanledesma.dev/</id>
   <title>Sean's Blog</title>
   <subtitle>A minimal project-oriented site to track my progress</subtitle>
-  <updated>2025-02-22T13:21:01-07:00</updated>
+  <updated>2025-08-25T17:57:18-06:00</updated>
   <author>
     <name>Sean Ledesma</name>
     <uri>https://seanledesma.dev/</uri>
@@ -17,6 +17,31 @@
   <icon>/assets/img/favicons/favicon.ico</icon>
   <logo>/assets/img/favicons/favicon-96x96.png</logo>
 
+
+  
+  <entry>
+    <title>Macbook Review</title>
+    <link href="https://seanledesma.dev/posts/macbook-review/" rel="alternate" type="text/html" title="Macbook Review" />
+    <published>2025-08-25T00:00:00-06:00</published>
+  
+    <updated>2025-08-25T00:00:00-06:00</updated>
+  
+    <id>https://seanledesma.dev/posts/macbook-review/</id>
+    <content src="https://seanledesma.dev/posts/macbook-review/" />
+    <author>
+      <name>Sean Ledesma</name>
+    </author>
+
+  
+    
+  
+
+  <summary>I’ve had this M4 pro Macbook Pro since release last year, after switching from an Asus Zenbook running Fedora Linux. I’ve had a lot of mixed feelings since switching, which I thought I’d share, with emphasis on switching to MacOS after using linux for several years before. I’ll share my thoughts as a student, as a software developer, and video editor.
+
+Brief overview of my model
+I decided to sp...</summary>
+
+  </entry>
 
   
   <entry>
