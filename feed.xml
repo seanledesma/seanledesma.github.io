@@ -4,7 +4,7 @@
   <id>https://seanledesma.dev/</id>
   <title>Sean's Blog</title>
   <subtitle>A minimal project-oriented site to track my progress</subtitle>
-  <updated>2025-08-25T17:57:18-06:00</updated>
+  <updated>2025-08-25T18:00:20-06:00</updated>
   <author>
     <name>Sean Ledesma</name>
     <uri>https://seanledesma.dev/</uri>
@@ -20,8 +20,8 @@
 
   
   <entry>
-    <title>Macbook Review</title>
-    <link href="https://seanledesma.dev/posts/macbook-review/" rel="alternate" type="text/html" title="Macbook Review" />
+    <title>M4 Macbook Pro nearly one year later... perspective of a Linux user</title>
+    <link href="https://seanledesma.dev/posts/macbook-review/" rel="alternate" type="text/html" title="M4 Macbook Pro nearly one year later... perspective of a Linux user" />
     <published>2025-08-25T00:00:00-06:00</published>
   
     <updated>2025-08-25T00:00:00-06:00</updated>
