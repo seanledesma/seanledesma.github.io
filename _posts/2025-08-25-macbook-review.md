@@ -1,3 +1,8 @@
+---
+layout: post
+title: M4 Macbook Pro nearly one year later... perspective of a Linux user
+---
+
 
 I've had this M4 pro Macbook Pro since release last year, after switching from an Asus Zenbook running Fedora Linux. I've had a lot of mixed feelings since switching, which I thought I'd share, with emphasis on switching to MacOS after using linux for several years before. I'll share my thoughts as a student, as a software developer, and video editor. 
 
