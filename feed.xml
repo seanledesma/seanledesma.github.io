@@ -4,7 +4,7 @@
   <id>https://seanledesma.dev/</id>
   <title>Sean's Blog</title>
   <subtitle>A minimal project-oriented site to track my progress</subtitle>
-  <updated>2025-08-25T18:07:45-06:00</updated>
+  <updated>2025-08-26T18:56:31-06:00</updated>
   <author>
     <name>Sean Ledesma</name>
     <uri>https://seanledesma.dev/</uri>
@@ -17,6 +17,28 @@
   <icon>/assets/img/favicons/favicon.ico</icon>
   <logo>/assets/img/favicons/favicon-96x96.png</logo>
 
+
+  
+  <entry>
+    <title>Home Lab Essentials - what I ACTUALLY use my home server for</title>
+    <link href="https://seanledesma.dev/posts/my-home-server-solution/" rel="alternate" type="text/html" title="Home Lab Essentials - what I ACTUALLY use my home server for" />
+    <published>2025-08-26T00:00:00-06:00</published>
+  
+    <updated>2025-08-26T00:00:00-06:00</updated>
+  
+    <id>https://seanledesma.dev/posts/my-home-server-solution/</id>
+    <content src="https://seanledesma.dev/posts/my-home-server-solution/" />
+    <author>
+      <name>Sean Ledesma</name>
+    </author>
+
+  
+    
+  
+
+  <summary>Over the years I’ve created a mental list of what I consider to be the “bare necessities” on my home server, programs and services that now would be difficult to live without. Since I began, my home lab has been through dozens of iterations. I’ve tried many different approaches, settling on what I consider to be the best “base” for someone starting from scratch. If you are someone looking to ge...</summary>
+
+  </entry>
 
   
   <entry>
