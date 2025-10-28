@@ -13,8 +13,8 @@
         body {
             /* Fallback dirt color */
             background-color: #5E3C25;
-            /* Repeating dirt block texture */
-            background-image: url('https://i.imgur.com/nMBg4iV.png');
+            /* NEW WORKING repeating dirt block texture */
+            background-image: url('https://i.imgur.com/v8RkM8I.png');
             background-repeat: repeat;
             /* Make space for the grass banner */
             padding-top: 128px;
@@ -33,8 +33,8 @@
             left: 0;
             right: 0;
             height: 128px;
-            /* Repeating grass block top texture */
-            background-image: url('https://i.imgur.com/v0RII7m.png');
+            /* NEW WORKING repeating grass block top texture */
+            background-image: url('https://i.imgur.com/iJ7cM8p.png');
             background-repeat: repeat-x;
             background-position: top left;
             /* Place it behind the page content but over the dirt */
@@ -102,51 +102,53 @@
             display: flex;
         }
 
-        /* XP-style buttons */
+        /* --- UPDATED XP BUTTON STYLES --- */
         .xp-button {
-            width: 22px;
-            height: 20px;
-            border: 1px solid;
-            border-top-color: #A1D0F4;
-            border-left-color: #A1D0F4;
-            border-right-color: #003CC3;
-            border-bottom-color: #003CC3;
+            width: 21px; /* Fixed width */
+            height: 21px; /* Fixed height */
             display: flex;
             align-items: center;
             justify-content: center;
-            /* Marlett is the font Windows uses for icons (r = close) */
-            font-family: 'Marlett', 'Arial', sans-serif;
-            font-size: 14px;
-            font-weight: bold;
-            color: black;
             margin-left: 3px;
-            box-shadow: 1px 1px 1px rgba(0,0,0,0.1);
+            border-radius: 3px;
+            box-shadow: 1px 1px 1px rgba(0,0,0,0.2);
+            color: white;
+            font-family: 'Arial Black', 'Tahoma', sans-serif; /* Bold font */
+            font-weight: bold;
+            font-size: 14px;
+            user-select: none;
+            cursor: default; /* Looks more like a window control */
+        }
+        
+        .minimize-button {
+            background: #005CFE;
+            border: 1px solid #A6D0F3; /* White-ish outline */
+            font-size: 16px;
+            line-height: 16px; 
+            padding-bottom: 5px; /* Nudge the '_' down */
+        }
+        
+        .maximize-button {
+            background: #005CFE;
+            border: 1px solid #A6D0F3; /* White-ish outline */
+            font-size: 12px; /* Make the square symbol look right */
+            line-height: 12px;
         }
 
         .close-button {
             background: #E81123;
-            color: white;
-            border-color: #F08A93;
-            font-weight: bold;
-            font-family: 'Arial Black', sans-serif;
-            font-size: 16px;
-            padding-bottom: 2px;
+            border: 1px solid #F08A93; /* White-ish/pink outline */
+            font-size: 14px;
+            line-height: 14px;
         }
         .close-button:hover {
             background: #F04A58;
         }
-        
-        .minimize-button {
-            background: #ECE9D8;
-            font-weight: bolder;
-            font-size: 16px;
-            padding-bottom: 5px;
+        .minimize-button:hover, .maximize-button:hover {
+            background: #4A8CF7;
         }
-        
-        .maximize-button {
-            background: #ECE9D8;
-            font-size: 12px;
-        }
+        /* --- END OF BUTTON UPDATES --- */
+
 
         .window-body {
             /* This holds the canvas and loading elements */
@@ -224,9 +226,9 @@
             <div class="title-bar">
                 <span class="title-bar-text">MyCraft</span>
                 <div class="title-bar-controls">
+                    <!-- Updated Buttons -->
                     <div class="xp-button minimize-button">_</div>
                     <div class="xp-button maximize-button">▫</div>
-                    <!-- The "r" character in Marlett font is the 'X' icon -->
                     <div class="xp-button close-button">X</div> 
                 </div>
             </div>
@@ -262,7 +264,8 @@
             canvas: (function() {
                 var canvas = document.getElementById('canvas');
                 canvas.addEventListener("webglcontextlost", function(e) {
-                    alert('WebGL context lost. You will need to reload the page.');
+                    /* Use a custom modal here if you have one, instead of alert */
+                    console.error('WebGL context lost. You will need to reload the page.');
                     e.preventDefault();
                 }, false);
                 return canvas;
@@ -296,12 +299,14 @@
             }
         };
         Module.setStatus('Downloading...');
-        window.onerror = function() {
-            Module.setStatus('Exception thrown, see JavaScript console');
-            spinnerElement.style.display = 'none';
-            Module.setStatus = function(text) {
-                if (text) console.error('[post-exception status] ' + text);
-            };
+        window.onerror = function(msg, url, line, col, error) {
+           Module.setStatus('Exception thrown, see JavaScript console');
+           spinnerElement.style.display = 'none';
+           Module.setStatus = function(text) {
+               if (text) console.error('[post-exception status] ' + text);
+           };
+           // Also log the actual error
+           console.error('Error details:', msg, 'at', url, 'line', line, 'col', col, 'error', error);
         };
     </script>
     <!-- This loads your actual game logic -->
@@ -318,3 +323,4 @@
     </script>
 </body>
 </html>
+
