@@ -149,7 +149,6 @@
         }
         /* --- END OF BUTTON UPDATES --- */
 
-
         .window-body {
             /* This holds the canvas and loading elements */
             padding: 10px;
@@ -162,6 +161,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            position: relative; /* For pointer lock overlay positioning */
         }
 
         /* Emscripten required styles from your game.html */
@@ -213,6 +213,58 @@
             height: auto;
             max-width: 800px; /* Max size of the game */
         }
+
+        /* ============================================================
+           POINTER LOCK OVERLAY STYLES
+           ============================================================ */
+        #pointer-lock-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            font-family: 'Arial', sans-serif;
+            cursor: pointer;
+            z-index: 1000;
+            transition: opacity 0.3s ease;
+        }
+        
+        #pointer-lock-overlay.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        #pointer-lock-message {
+            background: rgba(0, 0, 0, 0.95);
+            padding: 40px;
+            border: 3px solid #fff;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+        }
+
+        #pointer-lock-message .icon {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+
+        #pointer-lock-message .instruction {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        #pointer-lock-message .hint {
+            font-size: 16px;
+            color: #ccc;
+            margin-top: 15px;
+        }
     </style>
 </head>
 <body>
@@ -235,6 +287,15 @@
             
             <!-- This body holds the game, transplanted from your game.html -->
             <div class="window-body">
+                <!-- POINTER LOCK OVERLAY -->
+                <div id="pointer-lock-overlay">
+                    <div id="pointer-lock-message">
+                        <div class="icon">🖱️</div>
+                        <div class="instruction">Click to Play</div>
+                        <div class="hint">Press ESC to release mouse</div>
+                    </div>
+                </div>
+
                 <div class="spinner" id="spinner"></div>
                 <div class="emscripten" id="status">Downloading...</div>
                 <div class="emscripten">
@@ -253,6 +314,7 @@
         var statusElement = document.getElementById('status');
         var progressElement = document.getElementById('progress');
         var spinnerElement = document.getElementById('spinner');
+        var pointerLockOverlay = document.getElementById('pointer-lock-overlay');
 
         var Module = {
             print: function() {
@@ -263,11 +325,63 @@
             }(),
             canvas: (function() {
                 var canvas = document.getElementById('canvas');
+                
+                // ============================================================
+                // POINTER LOCK FUNCTIONALITY
+                // ============================================================
+                
+                // Request pointer lock on canvas click
+                canvas.addEventListener('click', function() {
+                    canvas.requestPointerLock = canvas.requestPointerLock ||
+                                               canvas.mozRequestPointerLock ||
+                                               canvas.webkitRequestPointerLock;
+                    if (canvas.requestPointerLock) {
+                        canvas.requestPointerLock();
+                    }
+                });
+                
+                // Also allow clicking the overlay to start
+                pointerLockOverlay.addEventListener('click', function() {
+                    canvas.click();
+                });
+                
+                // Handle pointer lock state changes
+                function lockChangeAlert() {
+                    if (document.pointerLockElement === canvas ||
+                        document.mozPointerLockElement === canvas ||
+                        document.webkitPointerLockElement === canvas) {
+                        // Pointer is locked - hide overlay
+                        console.log('Pointer locked');
+                        pointerLockOverlay.classList.add('hidden');
+                    } else {
+                        // Pointer is unlocked - show overlay
+                        console.log('Pointer unlocked');
+                        pointerLockOverlay.classList.remove('hidden');
+                    }
+                }
+                
+                // Listen for pointer lock change events
+                document.addEventListener('pointerlockchange', lockChangeAlert, false);
+                document.addEventListener('mozpointerlockchange', lockChangeAlert, false);
+                document.addEventListener('webkitpointerlockchange', lockChangeAlert, false);
+                
+                // Handle pointer lock errors
+                function lockError() {
+                    console.error('Pointer lock failed');
+                }
+                
+                document.addEventListener('pointerlockerror', lockError, false);
+                document.addEventListener('mozpointerlockerror', lockError, false);
+                document.addEventListener('webkitpointerlockerror', lockError, false);
+                
+                // ============================================================
+                // WEBGL CONTEXT LOST HANDLER
+                // ============================================================
                 canvas.addEventListener("webglcontextlost", function(e) {
-                    /* Use a custom modal here if you have one, instead of alert */
                     console.error('WebGL context lost. You will need to reload the page.');
                     e.preventDefault();
                 }, false);
+                
                 return canvas;
             })(),
             setStatus: function(text) {
@@ -315,7 +429,7 @@
     <!-- Prevent arrow keys from scrolling (from your game.html) -->
     <script>
         window.addEventListener("keydown", function(e) {
-            // Added 32 (Space) just in case
+            // Space, Left, Up, Right, Down arrows
             if([32, 37, 38, 39, 40].indexOf(e.keyCode) > -1) {
                 e.preventDefault();
             }
@@ -323,4 +437,3 @@
     </script>
 </body>
 </html>
-
